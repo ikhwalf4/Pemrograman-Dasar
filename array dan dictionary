@@ -1,0 +1,46 @@
+# Ikhwal Fauzi
+# D0425002
+
+# Array untuk menyimpan daftar mahasiswa
+daftar_mahasiswa = []
+
+# Menentukan berapa banyak data yang ingin dimasukkan
+jumlah = int(input("Masukkan jumlah mahasiswa: "))
+print()
+
+# Input data mahasiswa
+for i in range(jumlah):
+    print(f"Data Mahasiswa ke-{i+1}")
+    nama = input("Nama     : ")
+    nim = input("NIM      : ")
+    jurusan = input("Jurusan  : ")
+
+    # Input nilai (misalnya 3 mata kuliah)
+    nilai = []
+    for j in range(3):
+        n = float(input(f"Nilai ke-{j+1}: "))
+        nilai.append(n)
+    
+    # Tambahkan ke dalam array (setiap mahasiswa = dictionary)
+    daftar_mahasiswa.append({
+        "nama": nama,
+        "nim": nim,
+        "jurusan": jurusan,
+        "nilai": nilai
+    })
+    print("-" * 30)
+
+# Menampilkan semua data mahasiswa
+print("\n=== Daftar Mahasiswa ===")
+for mhs in daftar_mahasiswa:
+    print(f"Nama     : {mhs['nama']}")
+    print(f"NIM      : {mhs['nim']}")
+    print(f"Jurusan  : {mhs['jurusan']}")
+    print(f"Nilai    : {mhs['nilai']}")
+    print("-" * 30)
+
+# Menghitung rata-rata nilai tiap mahasiswa
+print("\n=== Rata-rata Nilai ===")
+for mhs in daftar_mahasiswa:
+    rata = sum(mhs["nilai"]) / len(mhs["nilai"])
+    print(f"{mhs['nama']} ({mhs['nim']}) -> Rata-rata: {rata:.2f}")
